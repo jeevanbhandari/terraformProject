@@ -1,5 +1,5 @@
 resource "aws_instance" "instance1" {
-       ami = "ami-0c21ae4a3bd190229"
+       ami = "${lookup(var.amis, var.region)}"
        instance_type = "t2.micro"
        key_name = "project1"
        subnet_id = "${aws_subnet.artemis-public.id}"
@@ -13,7 +13,7 @@ resource "aws_instance" "instance1" {
 
 # DB Host
 resource "aws_instance" "dbhost" {
-       ami = "ami-0c21ae4a3bd190229"
+       ami = "${lookup(var.amis, var.region)}"
        instance_type = "t2.micro"
        key_name = "project1"
        subnet_id = "${aws_subnet.artemis-private.id}"
