@@ -13,6 +13,11 @@ resource "aws_instance" "instance1" {
     Environment = "${var.Environment}"
     Created_by  = "${var.Created_by}"
   }
+
+  lifecycle {
+    prevent_destroy = "true"
+
+   }
 }
 
 # DB Host
@@ -30,4 +35,8 @@ resource "aws_instance" "dbhost" {
     Environment = "${var.Environment}"
     Created_by  = "${var.Created_by}"
   }
+
+  lifecycle {
+   prevent_destroy = "true"
+ }
 }
