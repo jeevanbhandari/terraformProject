@@ -20,4 +20,10 @@ resource "aws_security_group" "artemis" {
 
 
      }
+     tags {
+         Name = "${var.appname}"
+         Environment = "${var.Environment}"
+         Created_by = "${var.Created_by}"
+    }
+
 }
